@@ -35,8 +35,7 @@ StarComponent = __decorate([
         moduleId: module.id,
         templateUrl: 'star.component.html',
         styleUrls: ['star.component.css']
-    }),
-    __metadata("design:paramtypes", [])
+    })
 ], StarComponent);
 exports.StarComponent = StarComponent;
 //# sourceMappingURL=star.component.js.map
