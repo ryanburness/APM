@@ -22,8 +22,11 @@ var ProductDetailComponent = (function () {
         this._router.navigate(['/products']);
     };
     ProductDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
         var id = +this._route.snapshot.params['id'];
         this.pageTitle += ": " + id;
+        this._productService.getProduct(id)
+            .subscribe(function (product) { return _this.product = product; }, function (error) { return _this.errorMessage = error; });
     };
     return ProductDetailComponent;
 }());

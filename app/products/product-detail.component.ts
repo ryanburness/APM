@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class ProductDetailComponent implements OnInit {
     pageTitle: string = 'Product Detail';
     product: IProduct;
+    errorMessage: string;
 
     constructor(private _productService: ProductService,
         private _route: ActivatedRoute,
@@ -23,5 +24,9 @@ export class ProductDetailComponent implements OnInit {
     ngOnInit(): void {
         let id = +this._route.snapshot.params['id'];
         this.pageTitle += `: ${id}`;
+
+        this._productService.getProduct(id)
+                    .subscribe((product) => this.product = product,
+                        error => this.errorMessage = <any>error);
     }
 }
